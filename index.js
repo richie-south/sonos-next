@@ -2,7 +2,7 @@ const { send } = require('micro')
 const { router, get } = require('microrouter')
 const { DeviceDiscovery, Sonos, SpotifyRegion } = require('sonos')
 const Gpio = require('onoff').Gpio
-const nextButton = new Gpio(10, 'in', 'both')
+const nextButton = new Gpio(2, 'in', 'both')
 
 const devices = []
 
@@ -30,7 +30,6 @@ nextButton.watch(async (err, value) => {
     console.error(error)
   }
 })
-
 
 const onNextRoute = async (req, res) => {
   await onNext()
