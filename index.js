@@ -2,8 +2,8 @@ const { send } = require('micro')
 const { router, get } = require('microrouter')
 const { DeviceDiscovery, Sonos, SpotifyRegion } = require('sonos')
 const Gpio = require('onoff').Gpio
-const nextButton = new Gpio(2, 'in', 'both')
-const previousButton = new Gpio(3, 'in', 'both')
+const nextButton = new Gpio(2, 'in', 'rising', { debounceTimeout: 50 })
+const previousButton = new Gpio(3, 'in', 'rising', { debounceTimeout: 50 })
 
 const devices = []
 
